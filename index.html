@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portafolio de Redes — Ingeniería de Sistemas</title>
+<meta name="description" content="Portafolio de aprendizaje de Redes de Computadores. Equipo Thomas, Andrés y Valerie — Corte 1, Semestre 2026-2.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%23060a13%22/><circle cx=%2250%22 cy=%2250%22 r=%2210%22 fill=%22%232fd9f0%22/><circle cx=%2220%22 cy=%2230%22 r=%226%22 fill=%22%239b7bff%22/><circle cx=%2280%22 cy=%2230%22 r=%226%22 fill=%22%232fd9f0%22/><circle cx=%2220%22 cy=%2270%22 r=%226%22 fill=%22%232fd9f0%22/><circle cx=%2280%22 cy=%2270%22 r=%226%22 fill=%22%239b7bff%22/><line x1=%2250%22 y1=%2250%22 x2=%2220%22 y2=%2230%22 stroke=%22%232fd9f0%22 stroke-width=%224%22/><line x1=%2250%22 y1=%2250%22 x2=%2280%22 y2=%2230%22 stroke=%22%232fd9f0%22 stroke-width=%224%22/><line x1=%2250%22 y1=%2250%22 x2=%2220%22 y2=%2270%22 stroke=%22%232fd9f0%22 stroke-width=%224%22/><line x1=%2250%22 y1=%2250%22 x2=%2280%22 y2=%2270%22 stroke=%22%232fd9f0%22 stroke-width=%224%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;900&family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- shared SVG defs (arrow markers reused by every diagram) -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" class="arrowhead"></path>
+    </marker>
+    <marker id="arrow-bad" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#ff6b7a"></path>
+    </marker>
+  </defs>
+</svg>
+
+<button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+</button>
+<div class="overlay-scrim" id="scrim"></div>
+
+<div class="shell">
+
+  <!-- ===================== SIDEBAR ===================== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-mark">NX</div>
+      <div class="brand-text">
+        <div class="t1">PORTAFOLIO&nbsp;REDES</div>
+        <div class="t2">// corte 1 · 2026-2</div>
+      </div>
+    </div>
+
+    <nav class="nav-scroll">
+      <div class="nav-group">
+        <a class="nav-link" href="#inicio"><span class="num">00</span>Inicio</a>
+        <a class="nav-link" href="#introduccion"><span class="num">01</span>Introducción</a>
+        <a class="nav-link" href="#conceptos"><span class="num">02</span>Conceptos</a>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-group-label">Premisas</div>
+        <div class="nav-sub">
+          <a class="nav-link" href="#premisa-1"><span class="num">01</span>Diagnóstico de red</a>
+          <a class="nav-link" href="#premisa-2"><span class="num">02</span>Internet y sociedad</a>
+          <a class="nav-link" href="#premisa-3"><span class="num">03</span>Simular sin miedo</a>
+          <a class="nav-link" href="#premisa-4"><span class="num">04</span>¿Red buena?</a>
+          <a class="nav-link" href="#premisa-5"><span class="num">05</span>Viaje de un dato</a>
+          <a class="nav-link" href="#premisa-6"><span class="num">06</span>Internet-ciudad</a>
+          <a class="nav-link" href="#premisa-7"><span class="num">07</span>24h sin DNS</a>
+          <a class="nav-link" href="#premisa-8"><span class="num">08</span>Transmission media</a>
+        </div>
+      </div>
+
+      <div class="nav-group">
+        <a class="nav-link" href="#evidencias"><span class="num">03</span>Evidencias de aprendizaje</a>
+        <a class="nav-link" href="#lista-control"><span class="num">04</span>Lista de control</a>
+      </div>
+    </nav>
+
+    <div class="sidebar-foot">
+      Redes de Computadores<br>
+      Ingeniería de Sistemas<br>
+      Thomas · Andrés · Valerie
+    </div>
+  </aside>
+
+  <!-- ===================== MAIN ===================== -->
+  <main class="main">
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero view active" id="inicio">
+      <canvas id="netCanvas"></canvas>
+      <div class="hero-content">
+        <div class="hero-kicker">// Ingeniería de Sistemas · Redes de Computadores</div>
+        <h1>Portafolio de<br>Aprendizaje en Redes</h1>
+        <p class="hero-sub">Ocho premisas, un semestre de diagnósticos, diagramas, simulaciones y errores útiles. Documentamos cómo pensamos una red antes de construirla.</p>
+        <div class="hero-meta">
+          <span class="chip"><span class="dot"></span>Corte 1 · Semestre <b>2026-2</b></span>
+          <span class="chip"><span class="dot"></span>Equipo <b>Thomas · Andrés · Valerie</b></span>
+          <span class="chip"><span class="dot"></span><b>8</b> premisas desarrolladas</span>
+        </div>
+        <div class="hero-actions">
+          <a href="#premisa-1" class="btn btn-primary">
+            Explorar el portafolio
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a href="#conceptos" class="btn btn-ghost">Ver conceptos base</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== INTRODUCCIÓN ===================== -->
+    <section class="view" id="introduccion">
+      <div class="section-head reveal">
+        <div class="eyebrow">01 · Introducción</div>
+        <h2>Por qué este portafolio</h2>
+        <p>Este portafolio de aprendizaje recopila y evidencia los conocimientos, experiencias y habilidades que adquirimos durante el desarrollo de la asignatura Redes de Computadores, en el programa de Ingeniería de Sistemas.</p>
+      </div>
+
+      <div class="grid grid-2" style="margin-bottom:40px; align-items:stretch;">
+        <div class="panel reveal">
+          <div class="subhead" style="margin-top:0">Sobre este trabajo</div>
+          <div class="prose">
+            <p>Las redes de computadores son uno de los pilares fundamentales de la tecnología moderna: permiten la comunicación y el intercambio de información entre dispositivos, y hoy están presentes en prácticamente todos los ámbitos de la sociedad, desde hogares hasta empresas y organizaciones completas.</p>
+            <p>Durante la asignatura estudiamos tipos de redes, conexiones, direccionamiento y protocolos. En este portafolio documentamos esos aprendizajes junto con la información entregada por nuestro tutor, identificando dificultades en el proceso y reflexionando sobre la importancia de estos conceptos para la formación de un Ingeniero de Sistemas.</p>
+          </div>
+        </div>
+        <div class="panel reveal">
+          <div class="subhead" style="margin-top:0">Expectativas iniciales</div>
+          <div class="prose">
+            <p>Al comenzar la asignatura buscábamos adquirir los conocimientos necesarios para comprender cómo funcionan las redes y cómo se comunican entre sí. A lo largo del corte fuimos identificando la información suficiente para retenerla y aplicarla en casos concretos: desde el diagnóstico de una institución educativa hasta el diseño de un campus universitario inteligente.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="subhead">Equipo de trabajo</div>
+      <div class="team-grid">
+        <div class="team-card panel reveal">
+          <div class="team-avatar">T</div>
+          <h4>Thomas</h4>
+          <span>Ingeniería de Sistemas</span>
+        </div>
+        <div class="team-card panel reveal">
+          <div class="team-avatar">A</div>
+          <h4>Andrés</h4>
+          <span>Ingeniería de Sistemas</span>
+        </div>
+        <div class="team-card panel reveal">
+          <div class="team-avatar">V</div>
+          <h4>Valerie</h4>
+          <span>Ingeniería de Sistemas</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONCEPTOS ===================== -->
+    <section class="view" id="conceptos">
+      <div class="section-head reveal">
+        <div class="eyebrow">02 · Base teórica</div>
+        <h2>Conceptos fundamentales de redes</h2>
+        <p>Una red de computadores es un conjunto de dispositivos conectados entre sí con el propósito de compartir información, recursos y servicios. Estos son los bloques conceptuales que sostienen cada premisa del portafolio.</p>
+      </div>
+
+      <div class="tabs" role="tablist">
+        <button class="tab-btn active" data-tab="t-fund">Fundamentos</button>
+        <button class="tab-btn" data-tab="t-topo">Tipos y topologías</button>
+        <button class="tab-btn" data-tab="t-com">Comunicación y protocolos</button>
+        <button class="tab-btn" data-tab="t-osi">Modelos OSI / TCP-IP</button>
+      </div>
+
+      <!-- TAB: FUNDAMENTOS -->
+      <div class="tab-panel active" id="t-fund">
+        <div class="panel reveal" style="margin-bottom:24px;">
+          <div class="subhead" style="margin-top:0">Redes de computadoras</div>
+          <p style="color:var(--text-dim); margin:0;">Una red es un conjunto de computadoras enlazadas entre sí, junto con otros equipos de diferentes tamaños, conectados mediante medios físicos o inalámbricos, con el objetivo de compartir información, recursos y servicios.</p>
+        </div>
+
+        <div class="subhead">Componentes de una red · 3 categorías</div>
+        <div class="grid grid-3">
+          <div class="card reveal">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2"></rect><rect x="2" y="14" width="20" height="8" rx="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg></div>
+            <h4>Dispositivos</h4>
+            <p>Dispositivos intermediarios que interconectan terminales en una red: routers, switches, puntos de acceso LAN.</p>
+          </div>
+          <div class="card reveal">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg></div>
+            <h4>Medios</h4>
+            <p>El canal físico o inalámbrico que permite la mensajería desde el origen hasta el destino.</p>
+          </div>
+          <div class="card reveal">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg></div>
+            <h4>Servicios</h4>
+            <p>Las aplicaciones y recursos que la red pone a disposición: Internet, correo, almacenamiento compartido, impresión en red. Son la razón por la que existe la red: dispositivos y medios solo tienen sentido si permiten ofrecer estos servicios.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB: TIPOS Y TOPOLOGÍAS -->
+      <div class="tab-panel" id="t-topo">
+        <div class="subhead" style="margin-top:0">Clasificación por alcance</div>
+        <div class="grid grid-4">
+          <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg></div><h4>PAN</h4><p>Personal Area Network. Corto alcance, dispositivos personales, generalmente inalámbrica (Bluetooth).</p></div>
+          <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="10" rx="1"></rect><path d="M8 9V6a4 4 0 0 1 8 0v3"></path></svg></div><h4>LAN</h4><p>Local Area Network. Conecta dispositivos en un área pequeña: vivienda, oficina, laboratorio.</p></div>
+          <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"></path><path d="M5 21V7l7-4 7 4v14"></path><path d="M9 21v-6h6v6"></path></svg></div><h4>MAN</h4><p>Metropolitan Area Network. Conecta varias LAN dentro de una ciudad o zona metropolitana.</p></div>
+          <div class="card reveal"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div><h4>WAN</h4><p>Wide Area Network. Gran extensión geográfica: países, continentes, ciudades distantes.</p></div>
+        </div>
+
+        <div class="subhead">Relación funcional</div>
+        <div class="grid grid-2">
+          <div class="card reveal"><h4>Cliente / Servidor</h4><p>Un servidor centralizado administra usuarios y proporciona servicios o recursos a los dispositivos cliente.</p></div>
+          <div class="card reveal"><h4>Igual a igual (P2P)</h4><p>Los dispositivos actúan como servidores y clientes al mismo tiempo; comparten recursos sin un servidor central.</p></div>
+        </div>
+
+        <div class="subhead">Tecnología de transmisión &amp; modo de transmisión</div>
+        <div class="grid grid-3">
+          <div class="card reveal"><h4>Broadcast</h4><p>Un dispositivo envía información y todos los conectados a la red la reciben al instante.</p></div>
+          <div class="card reveal"><h4>Punto a punto (PPP)</h4><p>Comunicación directa entre dos dispositivos: un emisor y un receptor específico.</p></div>
+          <div class="card reveal"><h4>Simplex</h4><p>Una sola dirección: un dispositivo transmite, el otro solo recibe.</p></div>
+          <div class="card reveal"><h4>Half Duplex</h4><p>Ambas direcciones, pero no al mismo tiempo; los dispositivos se alternan.</p></div>
+          <div class="card reveal"><h4>Full Duplex</h4><p>Ambas direcciones de forma simultánea: transmite y recibe a la vez con eficiencia.</p></div>
+          <div class="card reveal"><h4>Síncrona / Asíncrona</h4><p>Síncrona: emisor y receptor coordinados. Asíncrona: no requiere conexión simultánea entre ambos.</p></div>
+        </div>
+
+        <div class="subhead">Por topología física</div>
+        <div class="grid grid-3">
+          <div class="card topo-card reveal">
+            <svg viewBox="0 0 200 90"><line x1="20" y1="45" x2="180" y2="45" class="topo-line"></line><circle cx="30" cy="45" r="6" class="topo-node"></circle><circle cx="75" cy="45" r="6" class="topo-node"></circle><circle cx="120" cy="45" r="6" class="topo-node"></circle><circle cx="170" cy="45" r="6" class="topo-node"></circle></svg>
+            <h4>Bus</h4><p>Cable principal compartido; si falla, cae toda la red.</p>
+          </div>
+          <div class="card topo-card reveal">
+            <svg viewBox="0 0 200 90"><circle cx="100" cy="45" r="34" fill="none" class="topo-line"></circle><circle cx="100" cy="11" r="6" class="topo-node"></circle><circle cx="134" cy="45" r="6" class="topo-node"></circle><circle cx="100" cy="79" r="6" class="topo-node"></circle><circle cx="66" cy="45" r="6" class="topo-node"></circle></svg>
+            <h4>Anillo</h4><p>Los dispositivos forman un círculo; una falla puede afectar la comunicación.</p>
+          </div>
+          <div class="card topo-card reveal">
+            <svg viewBox="0 0 200 90"><line x1="100" y1="45" x2="30" y2="15" class="topo-line"></line><line x1="100" y1="45" x2="170" y2="15" class="topo-line"></line><line x1="100" y1="45" x2="30" y2="75" class="topo-line"></line><line x1="100" y1="45" x2="170" y2="75" class="topo-line"></line><line x1="100" y1="45" x2="100" y2="10" class="topo-line"></line><circle cx="100" cy="45" r="7" class="topo-node"></circle><circle cx="30" cy="15" r="5" class="topo-node"></circle><circle cx="170" cy="15" r="5" class="topo-node"></circle><circle cx="30" cy="75" r="5" class="topo-node"></circle><circle cx="170" cy="75" r="5" class="topo-node"></circle><circle cx="100" cy="10" r="5" class="topo-node"></circle></svg>
+            <h4>Estrella</h4><p>Todos conectados a un nodo central: fácil de administrar, la más usada.</p>
+          </div>
+          <div class="card topo-card reveal">
+            <svg viewBox="0 0 200 90"><line x1="100" y1="14" x2="55" y2="45" class="topo-line"></line><line x1="100" y1="14" x2="145" y2="45" class="topo-line"></line><line x1="55" y1="45" x2="30" y2="76" class="topo-line"></line><line x1="55" y1="45" x2="80" y2="76" class="topo-line"></line><line x1="145" y1="45" x2="120" y2="76" class="topo-line"></line><line x1="145" y1="45" x2="170" y2="76" class="topo-line"></line><circle cx="100" cy="14" r="6" class="topo-node"></circle><circle cx="55" cy="45" r="5" class="topo-node"></circle><circle cx="145" cy="45" r="5" class="topo-node"></circle><circle cx="30" cy="76" r="4" class="topo-node"></circle><circle cx="80" cy="76" r="4" class="topo-node"></circle><circle cx="120" cy="76" r="4" class="topo-node"></circle><circle cx="170" cy="76" r="4" class="topo-node"></circle></svg>
+            <h4>Árbol</h4><p>Estructura jerárquica de varios niveles; conecta muchas redes de organización.</p>
+          </div>
+          <div class="card topo-card reveal">
+            <svg viewBox="0 0 200 90"><line x1="40" y1="20" x2="160" y2="20" class="topo-line"></line><line x1="40" y1="70" x2="160" y2="70" class="topo-line"></line><line x1="40" y1="20" x2="40" y2="70" class="topo-line"></line><line x1="160" y1="20" x2="160" y2="70" class="topo-line"></line><line x1="40" y1="20" x2="160" y2="70" class="topo-line"></line><line x1="160" y1="20" x2="40" y2="70" class="topo-line"></line><circle cx="40" cy="20" r="6" class="topo-node"></circle><circle cx="160" cy="20" r="6" class="topo-node"></circle><circle cx="40" cy="70" r="6" class="topo-node"></circle><circle cx="160" cy="70" r="6" class="topo-node"></circle></svg>
+            <h4>Malla</h4><p>Múltiples caminos entre nodos; si falla uno, existen alternativas. Resistente a fallos.</p>
+          </div>
+          <div class="card topo-card reveal">
+            <svg viewBox="0 0 200 90"><line x1="20" y1="70" x2="100" y2="70" class="topo-line"></line><circle cx="30" cy="70" r="5" class="topo-node"></circle><circle cx="60" cy="70" r="5" class="topo-node"></circle><line x1="100" y1="70" x2="140" y2="30" class="topo-line"></line><line x1="140" y1="30" x2="170" y2="15" class="topo-line"></line><line x1="140" y1="30" x2="170" y2="45" class="topo-line"></line><circle cx="100" cy="70" r="6" class="topo-node"></circle><circle cx="140" cy="30" r="6" class="topo-node"></circle><circle cx="170" cy="15" r="4" class="topo-node"></circle><circle cx="170" cy="45" r="4" class="topo-node"></circle></svg>
+            <h4>Mixta</h4><p>Combina dos o más topologías: más compleja, pero más flexible.</p>
+          </div>
+        </div>
+
+        <div class="subhead">Por conexión</div>
+        <div class="grid grid-2">
+          <div class="card reveal"><h4>Medios guiados</h4><p>Conexión mediante cable: estable y de alta velocidad.</p></div>
+          <div class="card reveal"><h4>Medios no guiados</h4><p>La información viaja sin cable mediante ondas electromagnéticas: da movilidad, aunque puede sufrir interferencias.</p></div>
+        </div>
+      </div>
+
+      <!-- TAB: COMUNICACIÓN Y PROTOCOLOS -->
+      <div class="tab-panel" id="t-com">
+        <div class="subhead" style="margin-top:0">Proceso de comunicación</div>
+        <p style="color:var(--text-dim); max-width:640px;">Es un conjunto de pasos que ocurre para transmitir información: se envía y se recibe, siempre en presencia de ruido y contexto.</p>
+
+        <div class="diagram-box reveal">
+          <svg viewBox="0 0 900 220" width="100%">
+            <g>
+              <rect x="20" y="70" width="120" height="60" rx="8" class="node-box cyan"></rect>
+              <text x="80" y="95" text-anchor="middle" class="node-label">Emisor</text>
+              <text x="80" y="112" text-anchor="middle" class="node-sub">origen</text>
+
+              <rect x="175" y="70" width="120" height="60" rx="8" class="node-box"></rect>
+              <text x="235" y="95" text-anchor="middle" class="node-label">Codificación</text>
+
+              <rect x="330" y="70" width="120" height="60" rx="8" class="node-box"></rect>
+              <text x="390" y="95" text-anchor="middle" class="node-label">Mensaje</text>
+
+              <rect x="485" y="70" width="120" height="60" rx="8" class="node-box violet"></rect>
+              <text x="545" y="95" text-anchor="middle" class="node-label">Canal</text>
+
+              <rect x="640" y="70" width="120" height="60" rx="8" class="node-box"></rect>
+              <text x="700" y="95" text-anchor="middle" class="node-label">Decodificación</text>
+
+              <rect x="760" y="70" width="120" height="60" rx="8" class="node-box cyan" transform="translate(0,0)" style="display:none"></rect>
+
+              <rect x="640" y="150" width="0" height="0"></rect>
+
+              <path d="M140,100 L175,100" class="edge flow" marker-end="url(#arrow)"></path>
+              <path d="M295,100 L330,100" class="edge flow" marker-end="url(#arrow)"></path>
+              <path d="M450,100 L485,100" class="edge flow" marker-end="url(#arrow)"></path>
+              <path d="M605,100 L640,100" class="edge flow" marker-end="url(#arrow)"></path>
+
+              <rect x="775" y="70" width="105" height="60" rx="8" class="node-box ok"></rect>
+              <text x="827" y="95" text-anchor="middle" class="node-label">Receptor</text>
+              <path d="M760,100 L775,100" class="edge flow" marker-end="url(#arrow)"></path>
+
+              <rect x="440" y="10" width="90" height="34" rx="17" class="node-box warn" style="fill:var(--warn-soft)"></rect>
+              <text x="485" y="31" text-anchor="middle" class="node-sub" style="fill:var(--warn)">Ruido</text>
+              <path d="M485,44 L545,70" class="edge" stroke-dasharray="3 3"></path>
+
+              <rect x="560" y="170" width="110" height="34" rx="17" class="node-box violet" style="fill:var(--violet-soft)"></rect>
+              <text x="615" y="191" text-anchor="middle" class="node-sub" style="fill:var(--violet)">Contexto</text>
+              <path d="M615,170 L545,130" class="edge" stroke-dasharray="3 3"></path>
+            </g>
+          </svg>
+          <div class="diagram-caption">Emisor → Codificación → Mensaje → Canal → Decodificación → Receptor, bajo ruido y contexto constantes.</div>
+        </div>
+
+        <div class="subhead">Protocolos de comunicación</div>
+        <div class="grid grid-3">
+          <div class="card reveal"><h4>Método</h4><p>La forma en que se establece y ejecuta la comunicación entre los dispositivos.</p></div>
+          <div class="card reveal"><h4>Lenguaje</h4><p>El formato común que ambos extremos deben entender para intercambiar datos.</p></div>
+          <div class="card reveal"><h4>Confirmación</h4><p>El mecanismo que garantiza que el mensaje fue recibido correctamente.</p></div>
+        </div>
+
+        <div class="subhead">Requisitos del protocolo de red</div>
+        <div class="grid grid-3">
+          <div class="card reveal"><h4>Codificación</h4><p>La información se convierte en un formato aceptable para la transmisión.</p></div>
+          <div class="card reveal"><h4>Formato</h4><p>Los mensajes dependen del tipo de mensaje y del canal usado para su entrega.</p></div>
+          <div class="card reveal"><h4>Tamaño</h4><p>La codificación entre hosts debe compartir formato; los mensajes se convierten en bits.</p></div>
+        </div>
+
+        <div class="subhead">Métodos de entrega</div>
+        <div class="grid grid-3">
+          <div class="card reveal"><h4>Unidifusión (Unicast)</h4><p>Comunicación de uno a uno.</p></div>
+          <div class="card reveal"><h4>Difusión (Broadcast)</h4><p>De uno para todos los dispositivos de la red.</p></div>
+          <div class="card reveal"><h4>Multidifusión (Multicast)</h4><p>De uno a muchos, aunque no todos los dispositivos pueden participar.</p></div>
+        </div>
+
+        <div class="subhead">Funciones de los protocolos</div>
+        <div class="grid grid-3">
+          <div class="card reveal"><h4>Direccionamiento</h4><p>Identifica previamente a un emisor y un receptor.</p></div>
+          <div class="card reveal"><h4>Confianza</h4><p>Proporciona una entrega garantizada de los datos.</p></div>
+          <div class="card reveal"><h4>Control de flujo</h4><p>Garantiza un flujo de datos a una velocidad eficiente.</p></div>
+          <div class="card reveal"><h4>Secuenciación</h4><p>Etiqueta de forma exclusiva cada segmento transmitido.</p></div>
+          <div class="card reveal"><h4>Detección de errores</h4><p>Determina si los datos se dañaron durante la transmisión.</p></div>
+          <div class="card reveal"><h4>Interfaz de aplicación</h4><p>Comunicación de proceso a proceso entre aplicaciones de red.</p></div>
+        </div>
+
+        <div class="subhead">Protocolos que ya usamos todos los días</div>
+        <div class="grid grid-4">
+          <div class="card reveal"><h4>HTTP</h4><p>Define contenido y formato de la interacción entre servidor web y cliente.</p></div>
+          <div class="card reveal"><h4>TCP</h4><p>Administra el control de flujo y entrega garantizada de la información.</p></div>
+          <div class="card reveal"><h4>IP</h4><p>Entrega mensajes de forma global, del remitente al receptor.</p></div>
+          <div class="card reveal"><h4>Ethernet</h4><p>Entrega mensajes de una NIC a otra dentro de la misma red local (LAN).</p></div>
+        </div>
+      </div>
+
+      <!-- TAB: OSI / TCP-IP -->
+      <div class="tab-panel" id="t-osi">
+        <p style="color:var(--text-dim); max-width:680px; margin-top:0;">El modelo OSI describe la comunicación en siete capas independientes; el modelo TCP/IP agrupa esas mismas funciones en cuatro. Selecciona una capa para ver su función.</p>
+
+        <div class="osi-wrap">
+          <div>
+            <div class="osi-stack" id="osiStack">
+              <div class="osi-layer active" data-layer="7"><span><span class="l-num">L7</span> <span class="l-name">Aplicación</span></span><span class="l-tag">HTTP · DNS · FTP</span></div>
+              <div class="osi-layer" data-layer="6"><span><span class="l-num">L6</span> <span class="l-name">Presentación</span></span><span class="l-tag">cifrado · formato</span></div>
+              <div class="osi-layer" data-layer="5"><span><span class="l-num">L5</span> <span class="l-name">Sesión</span></span><span class="l-tag">login · sesión activa</span></div>
+              <div class="osi-layer" data-layer="4"><span><span class="l-num">L4</span> <span class="l-name">Transporte</span></span><span class="l-tag">TCP · UDP</span></div>
+              <div class="osi-layer" data-layer="3"><span><span class="l-num">L3</span> <span class="l-name">Red</span></span><span class="l-tag">IP · routers</span></div>
+              <div class="osi-layer" data-layer="2"><span><span class="l-num">L2</span> <span class="l-name">Enlace de datos</span></span><span class="l-tag">MAC · switches</span></div>
+              <div class="osi-layer" data-layer="1"><span><span class="l-num">L1</span> <span class="l-name">Física</span></span><span class="l-tag">cables · Wi-Fi</span></div>
+            </div>
+
+            <div class="tcpip-groups">
+              <div class="tcpip-group"><b>Aplicación</b>agrupa Aplicación + Presentación + Sesión (OSI)</div>
+              <div class="tcpip-group"><b>Transporte</b>equivalente directo a la capa de Transporte OSI</div>
+              <div class="tcpip-group"><b>Internet</b>equivalente directo a la capa de Red OSI</div>
+              <div class="tcpip-group"><b>Acceso a la red</b>agrupa Enlace de datos + Física (OSI)</div>
+            </div>
+          </div>
+
+          <div class="osi-detail" id="osiDetail">
+            <!-- filled by JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PREMISA 1 ===================== -->
+    <section class="premise view" id="premisa-1">
+      <div class="premise-head reveal">
+        <div class="premise-num">01</div>
+        <div class="premise-title">
+          <h2>Una red no es solo conectar dispositivos</h2>
+          <div class="case">Caso: transformación digital de la Institución Educativa Nuevo Horizonte</div>
+        </div>
+      </div>
+
+      <div class="prose reveal">
+        <p>La Institución Educativa Nuevo Horizonte cuenta con aproximadamente <strong>800 estudiantes, 60 docentes y 30 funcionarios administrativos</strong>, distribuidos en tres bloques: el <strong>Bloque A</strong> (aulas y salas de profesores), el <strong>Bloque B</strong> (laboratorios de informática y biblioteca) y el <strong>Bloque C</strong> (oficinas administrativas, rectoría y coordinación).</p>
+        <p>Actualmente existen computadores, portátiles, tabletas, impresoras, cámaras de seguridad, teléfonos IP, televisores inteligentes y puntos de acceso inalámbrico — pero también problemas de conectividad, congestión en los laboratorios y necesidades futuras relacionadas con IoT y crecimiento de infraestructura.</p>
+      </div>
+
+      <div class="subhead">Diagnóstico</div>
+      <ul class="bullet-list reveal">
+        <li>Cobertura insuficiente de Internet en algunas zonas.</li>
+        <li>Congestión de la red en los laboratorios en horas pico.</li>
+        <li>Necesidad de compartir información administrativa de forma segura.</li>
+        <li>Conectividad permanente requerida para la biblioteca.</li>
+        <li>Necesidad de conectar cámaras de seguridad y dispositivos IoT.</li>
+        <li>Crecimiento futuro del número de usuarios y dispositivos.</li>
+      </ul>
+
+      <div class="subhead">Clasificación, topología y medios propuestos</div>
+      <div class="prose">
+        <p>Dentro de cada bloque usaríamos una <strong>LAN</strong>, ya que cada edificio es un espacio geográfico limitado; los tres bloques se mantendrían como una infraestructura LAN institucional con diferentes segmentos. Para los laboratorios propondríamos una <strong>topología en estrella</strong>, que facilita la administración: si un computador o cable falla, los demás equipos siguen funcionando.</p>
+        <p>Los dispositivos de usuario funcionan como <strong>clientes</strong>; los servicios compartidos —archivos, web, DNS, DHCP y autenticación— se centralizan en <strong>servidores</strong>. Para el cableado usaríamos cobre dentro de aulas y laboratorios, fibra óptica entre bloques, y Wi-Fi para los dispositivos móviles.</p>
+      </div>
+
+      <div class="diagram-box reveal">
+        <svg viewBox="0 0 860 430" width="100%">
+          <rect x="370" y="10" width="120" height="42" rx="8" class="node-box cyan"></rect>
+          <text x="430" y="36" text-anchor="middle" class="node-label">INTERNET</text>
+
+          <rect x="370" y="82" width="120" height="42" rx="8" class="node-box"></rect>
+          <text x="430" y="108" text-anchor="middle" class="node-label">ROUTER</text>
+
+          <rect x="330" y="154" width="200" height="42" rx="8" class="node-box cyan"></rect>
+          <text x="430" y="180" text-anchor="middle" class="node-label">SWITCH PRINCIPAL</text>
+
+          <path d="M430,52 L430,82" class="edge flow" marker-end="url(#arrow)"></path>
+          <path d="M430,124 L430,154" class="edge flow" marker-end="url(#arrow)"></path>
+
+          <rect x="20" y="236" width="170" height="54" rx="8" class="node-box violet"></rect>
+          <text x="105" y="258" text-anchor="middle" class="node-label">SERVIDORES</text>
+          <text x="105" y="274" text-anchor="middle" class="node-sub">archivos · web · DNS · DHCP</text>
+
+          <rect x="230" y="236" width="150" height="54" rx="8" class="node-box"></rect>
+          <text x="305" y="258" text-anchor="middle" class="node-label">BLOQUE A</text>
+          <text x="305" y="274" text-anchor="middle" class="node-sub">aulas y profesores</text>
+
+          <rect x="410" y="236" width="150" height="54" rx="8" class="node-box"></rect>
+          <text x="485" y="258" text-anchor="middle" class="node-label">BLOQUE B</text>
+          <text x="485" y="274" text-anchor="middle" class="node-sub">labs y biblioteca</text>
+
+          <rect x="590" y="236" width="150" height="54" rx="8" class="node-box"></rect>
+          <text x="665" y="258" text-anchor="middle" class="node-label">BLOQUE C</text>
+          <text x="665" y="274" text-anchor="middle" class="node-sub">admin y rectoría</text>
+
+          <path d="M430,196 L105,236" class="edge" marker-end="url(#arrow)"></path>
+          <path d="M430,196 L305,236" class="edge flow" marker-end="url(#arrow)"></path>
+          <path d="M430,196 L485,236" class="edge flow" marker-end="url(#arrow)"></path>
+          <path d="M430,196 L665,236" class="edge flow" marker-end="url(#arrow)"></path>
+
+          <rect x="255" y="326" width="100" height="38" rx="8" class="node-box"></rect>
+          <text x="305" y="350" text-anchor="middle" class="node-label" style="font-size:11px">Switch A</text>
+          <rect x="435" y="326" width="100" height="38" rx="8" class="node-box"></rect>
+          <text x="485" y="350" text-anchor="middle" class="node-label" style="font-size:11px">Switch B</text>
+          <rect x="615" y="326" width="100" height="38" rx="8" class="node-box"></rect>
+          <text x="665" y="350" text-anchor="middle" class="node-label" style="font-size:11px">Switch C</text>
+
+          <path d="M305,290 L305,326" class="edge" marker-end="url(#arrow)"></path>
+          <path d="M485,290 L485,326" class="edge" marker-end="url(#arrow)"></path>
+          <path d="M665,290 L665,326" class="edge" marker-end="url(#arrow)"></path>
+
+          <rect x="255" y="388" width="100" height="38" rx="8" class="node-box ok"></rect>
+          <text x="305" y="412" text-anchor="middle" class="node-label" style="font-size:11px">PCs / Wi-Fi</text>
+          <rect x="435" y="388" width="100" height="38" rx="8" class="node-box ok"></rect>
+          <text x="485" y="412" text-anchor="middle" class="node-label" style="font-size:11px">PCs / Wi-Fi</text>
+          <rect x="615" y="388" width="100" height="38" rx="8" class="node-box ok"></rect>
+          <text x="665" y="412" text-anchor="middle" class="node-label" style="font-size:11px">PCs / Wi-Fi</text>
+
+          <path d="M305,364 L305,388" class="edge" marker-end="url(#arrow)"></path>
+          <path d="M485,364 L485,388" class="edge" marker-end="url(#arrow)"></path>
+          <path d="M665,364 L665,388" class="edge" marker-end="url(#arrow)"></path>
+        </svg>
+        <div class="diagram-caption">Propuesta de red — Institución Educativa Nuevo Horizonte</div>
+      </div>
+
+      <div class="prose">
+        <p><strong>Proyección:</strong> la red se diseña pensando en el crecimiento futuro, dejando puertos disponibles en los switches, capacidad adicional en los enlaces y espacio para nuevos puntos de acceso, cámaras y dispositivos IoT — sin obligar a reemplazar la infraestructura existente.</p>
+        <p><strong>Conclusión:</strong> una red no consiste simplemente en conectar dispositivos. Es necesario analizar las necesidades y seleccionar correctamente dispositivos, medios, topologías, servicios y mecanismos de seguridad, para diseñar una solución funcional hoy y capaz de crecer mañana.</p>
+      </div>
+
+      <div class="subhead">Aprendizajes del equipo</div>
+      <div class="panel">
+        <p style="color:var(--text-dim); margin:0;">Con esta premisa aprendimos a diferenciar los tipos de red (LAN, MAN, WAN) según el alcance y a elegir la topología adecuada según el contexto — como la topología en estrella para los laboratorios. También comprendimos la diferencia entre cliente/servidor y P2P, y por qué en una institución de este tamaño conviene centralizar los servicios: diseñar una red no es solo "conectar cables", es tomar decisiones justificadas según las necesidades reales de los usuarios.</p>
+      </div>
+
+      <div class="product-card done">
+        <div class="ph">
+          <h4>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+            Producto multimodal — Cómic
+          </h4>
+          <span class="badge badge-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 17.01"></polyline></svg>Entregado</span>
+        </div>
+        <div class="meta">A cargo de: equipo completo (Thomas, Andrés y Valerie)</div>
+        <div class="media-frame" onclick="openLightbox('assets/img/comic-premisa1.jpg')">
+          <img src="assets/img/comic-premisa1.jpg" alt="Cómic: diagnóstico de red de la Institución Educativa Nuevo Horizonte" loading="lazy">
+          <div class="cap">Click para ampliar · 4 actos</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PREMISA 2 ===================== -->
+    <section class="premise view" id="premisa-2">
+      <div class="premise-head reveal">
+        <div class="premise-num">02</div>
+        <div class="premise-title">
+          <h2>Internet: ¿una solución tecnológica que transformó la sociedad?</h2>
+          <div class="case">Análisis · reflexión sobre la evolución de Internet</div>
+        </div>
+      </div>
+
+      <div class="prose reveal">
+        <p>Internet comenzó como una tecnología destinada a conectar sistemas y compartir información, pero con el tiempo se convirtió en una infraestructura fundamental para la sociedad, cambiando la manera en que las personas estudian, trabajan, se comunican y acceden a información.</p>
+        <p>Consideramos que su evolución ha generado más oportunidades que riesgos, aunque los riesgos también deben reconocerse y gestionarse. En educación permite acceder a plataformas virtuales y bibliotecas digitales; en lo laboral impulsó el teletrabajo, las reuniones virtuales y la nube; en comunicación, la mensajería y las videollamadas.</p>
+      </div>
+
+      <div class="subhead">Riesgos que también trajo</div>
+      <div class="grid grid-3">
+        <div class="card reveal"><h4>Seguridad informática</h4><p>Robo de información y ciberataques.</p></div>
+        <div class="card reveal"><h4>Fraudes y desinformación</h4><p>Estafas digitales y contenido engañoso a gran escala.</p></div>
+        <div class="card reveal"><h4>Dependencia y privacidad</h4><p>Dependencia tecnológica y pérdida de privacidad.</p></div>
+      </div>
+
+      <div class="prose" style="margin-top:24px;">
+        <p>Desde la perspectiva de un Ingeniero de Sistemas, el objetivo no es rechazar Internet por sus riesgos, sino desarrollar soluciones que aprovechen sus beneficios reduciendo las amenazas. Internet demuestra que una tecnología puede producir cambios muy superiores a su objetivo inicial — por eso el desarrollo tecnológico debe ir acompañado de responsabilidad, seguridad y educación digital.</p>
+      </div>
+
+      <div class="subhead">Aprendizajes del equipo</div>
+      <div class="panel">
+        <p style="color:var(--text-dim); margin:0;">Esta premisa nos permitió reflexionar sobre cómo Internet transformó ámbitos más allá de lo técnico: educación, trabajo y comunicación. Aprendimos a identificar tanto oportunidades (acceso a información, teletrabajo, colaboración remota) como riesgos (seguridad, privacidad, desinformación), y a pensar el rol del ingeniero de sistemas como quien potencia los beneficios mientras reduce las amenazas.</p>
+      </div>
+
+      <div class="product-card">
+        <div class="ph">
+          <h4>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+            Producto multimodal — Podcast
+          </h4>
+          <span class="badge badge-warn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>Pendiente</span>
+        </div>
+        <div class="meta">A cargo de: Thomas, Valerie y Andrés — 3 bloques grabados por separado</div>
+        <div class="pending-line">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          Falta unir los 3 audios y publicar el archivo final (MP3) o el enlace.
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PREMISA 3 ===================== -->
+    <section class="premise view" id="premisa-3">
+      <div class="premise-head reveal">
+        <div class="premise-num">03</div>
+        <div class="premise-title">
+          <h2>¿Qué pasaría si pudieras equivocarte sin consecuencias?</h2>
+          <div class="case">Simulación de red con Cisco Packet Tracer</div>
+        </div>
+      </div>
+
+      <div class="prose reveal">
+        <p>En ingeniería es fundamental probar las soluciones antes de implementarlas en un entorno real. Cisco Packet Tracer permite construir redes virtuales, configurar dispositivos, probar conexiones y analizar errores — como si tuviéramos una sola oportunidad para la configuración definitiva de una institución educativa.</p>
+      </div>
+
+      <div class="subhead">Proceso</div>
+      <ul class="bullet-list reveal">
+        <li>Identificar cantidad de computadores, usuarios, switches, routers, servidores y puntos de acceso.</li>
+        <li>Definir direcciones IP y medios de conexión.</li>
+        <li>Construir la topología en Packet Tracer y probar configuraciones.</li>
+      </ul>
+
+      <div class="terminal reveal"><span class="prompt">C:\&gt;</span> ping 192.168.0.2</div>
+
+      <div class="prose">
+        <p>Si el <em>ping</em> falla, revisamos en orden: conexiones físicas, direcciones IP, máscaras de subred, puerta de enlace, configuración del router y configuración del switch. Una de las ventajas de la simulación es que podemos equivocarnos sin generar daños físicos — modificar una IP mal asignada o corregir una conexión no cuesta nada en Packet Tracer.</p>
+      </div>
+
+      <div class="subhead">Simulación vs. infraestructura real</div>
+      <div class="grid grid-2">
+        <div class="card reveal"><h4>En Packet Tracer</h4><p>Un error normalmente implica modificar la simulación: sin costo, sin riesgo.</p></div>
+        <div class="card reveal"><h4>En infraestructura real</h4><p>Un error puede provocar pérdida de conectividad, interrupción de servicios, pérdida de productividad, riesgos de seguridad y costos económicos.</p></div>
+      </div>
+
+      <div class="subhead">Aprendizajes del equipo</div>
+      <div class="panel">
+        <p style="color:var(--text-dim); margin:0;">Trabajar esta premisa nos hizo entender el valor de simular antes de implementar: herramientas como Packet Tracer permiten anticipar errores sin arriesgar una infraestructura real. Equivocarse en un entorno simulado es parte del proceso de aprendizaje técnico, y esa misma lógica de "probar antes de implementar" aplica a cualquier decisión de ingeniería.</p>
+      </div>
+
+      <div class="product-card done">
+        <div class="ph">
+          <h4>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line></svg>
+            Producto multimodal — Video (Packet Tracer)
+          </h4>
+          <span class="badge badge-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 17.01"></polyline></svg>Entregado</span>
+        </div>
+        <div class="meta">A cargo de: un integrante del equipo · duración ≈ 4:19 min</div>
+        <div class="video-frame">
+          <video controls preload="metadata" poster="assets/img/packet-tracer-premisa3.jpg">
+            <source src="assets/img/simulacion_packet_tracer.mp4" type="video/mp4">
+            Tu navegador no soporta la reproducción de video.
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PREMISA 4 ===================== -->
+    <section class="premise view" id="premisa-4">
+      <div class="premise-head reveal">
+        <div class="premise-num">04</div>
+        <div class="premise-title">
+          <h2>Una red que funciona… ¿es necesariamente una buena red?</h2>
+          <div class="case">No necesariamente — análisis de calidad de red</div>
+        </div>
+      </div>
+
+      <div class="prose reveal">
+        <p>Una red puede permitir que todos los usuarios accedan a Internet y aun así ser una mala solución tecnológica si presenta problemas de velocidad, seguridad, disponibilidad o administración. Por ejemplo, una red escolar puede funcionar bien a las 7:00 a. m. con pocos usuarios, pero congestionarse gravemente cuando todos ingresan a la vez a una plataforma: técnicamente hay conectividad, pero el rendimiento no es suficiente.</p>
+      </div>
+
+      <div class="subhead">Características de una buena red</div>
+      <div class="grid grid-4">
+        <div class="card reveal"><h4>Conectividad</h4><p>Los dispositivos deben poder comunicarse correctamente.</p></div>
+        <div class="card reveal"><h4>Rendimiento</h4><p>Capacidad suficiente para atender usuarios sin congestión excesiva.</p></div>
+        <div class="card reveal"><h4>Seguridad</h4><p>Protege la información y evita accesos no autorizados.</p></div>
+        <div class="card reveal"><h4>Disponibilidad</h4><p>Los servicios están disponibles cuando se necesitan.</p></div>
+        <div class="card reveal"><h4>Escalabilidad</h4><p>Permite agregar nuevos usuarios y dispositivos.</p></div>
+        <div class="card reveal"><h4>Administración</h4><p>Es posible monitorear y mantener la infraestructura.</p></div>
+        <div class="card reveal"><h4>Experiencia de usuario</h4><p>Servicio estable y adecuado para quienes la utilizan.</p></div>
+      </div>
+
+      <div class="prose" style="margin-top:24px;">
+        <p>Un Ingeniero de Sistemas debe evaluar la solución de manera integral y no limitarse a comprobar si existe conexión: una red puede "funcionar" técnicamente y aun así fallarle a sus usuarios en la práctica.</p>
+      </div>
+
+      <div class="subhead">Aprendizajes del equipo</div>
+      <div class="panel">
+        <p style="color:var(--text-dim); margin:0;">Esta premisa nos enseñó que la conectividad por sí sola no basta para calificar una red como "buena". Aprendimos a evaluarla desde varias dimensiones —rendimiento, seguridad, disponibilidad, escalabilidad, administración y experiencia del usuario— y a reconocer que una red puede funcionar técnicamente y aun así fallarle a sus usuarios en la práctica.</p>
+      </div>
+
+      <div class="product-card done">
+        <div class="ph">
+          <h4>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+            Producto multimodal — Infografía
+          </h4>
+          <span class="badge badge-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 17.01"></polyline></svg>Entregado</span>
+        </div>
+        <div class="meta">A cargo de: equipo completo (Thomas, Andrés y Valerie)</div>
+        <div class="media-frame" style="max-width:360px" onclick="openLightbox('assets/img/infografia-premisa4.jpg')">
+          <img src="assets/img/infografia-premisa4.jpg" alt="Infografía: ¿Funciona… o es realmente buena?" loading="lazy">
+          <div class="cap">Click para ampliar</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PREMISA 5 ===================== -->
+    <section class="premise view" id="premisa-5">
+      <div class="premise-head reveal">
+        <div class="premise-num">05</div>
+        <div class="premise-title">
+          <h2>El viaje invisible de un dato</h2>
+          <div class="case">Servicio seleccionado: YouTube · recorrido por las 7 capas OSI</div>
+        </div>
+      </div>
+
+      <div class="prose reveal">
+        <p>Todos los días usamos servicios digitales sin observar el recorrido que hacen los datos. Cuando un usuario abre YouTube y reproduce un video, se produce un proceso de comunicación entre su dispositivo y distintos servidores, atravesando las siete capas del modelo OSI.</p>
+      </div>
+
+      <div class="grid grid-2" style="align-items:start; gap:24px;">
+        <div class="panel reveal">
+          <div class="subhead" style="margin-top:0">Recorrido capa por capa</div>
+          <ul class="bullet-list">
+            <li><strong>Física:</strong> la información viaja por cable Ethernet, fibra óptica o Wi-Fi.</li>
+            <li><strong>Enlace de datos:</strong> los dispositivos locales usan direcciones MAC para comunicarse.</li>
+            <li><strong>Red:</strong> direcciones IP identifican los dispositivos; los routers determinan la ruta.</li>
+            <li><strong>Transporte:</strong> TCP o UDP permiten la comunicación entre aplicaciones.</li>
+            <li><strong>Sesión:</strong> se mantiene la comunicación mientras el usuario interactúa con el servicio.</li>
+            <li><strong>Presentación:</strong> los datos se formatean, y pueden cifrarse o comprimirse.</li>
+            <li><strong>Aplicación:</strong> aquí interactúa directamente el usuario, vía HTTP/HTTPS.</li>
+          </ul>
+        </div>
+        <div class="panel reveal">
+          <div class="subhead" style="margin-top:0">¿Qué pasa si una capa falla?</div>
+          <ul class="bullet-list">
+            <li>Si falla la <strong>capa física</strong>, no existe una conexión adecuada.</li>
+            <li>Si falla el <strong>enlace</strong>, los dispositivos no logran comunicarse en la red local.</li>
+            <li>Si falla la <strong>red</strong>, los paquetes no encuentran correctamente su destino.</li>
+            <li>Si falla el <strong>transporte</strong>, la comunicación entre aplicaciones se ve afectada.</li>
+          </ul>
+          <p style="color:var(--text-dim); margin-top:14px; font-size:0.9rem;">Esto demuestra que las capas trabajan en conjunto para que una acción tan simple como reproducir un video pueda funcionar.</p>
+        </div>
+      </div>
+
+      <div class="subhead">Aprendizajes del equipo</div>
+      <div class="panel">
+        <p style="color:var(--text-dim); margin:0;">Reconstruir el recorrido de un dato usando YouTube como ejemplo nos ayudó a conectar las capas del modelo OSI con acciones cotidianas concretas. Entendimos qué rol cumple cada capa —desde el medio físico hasta la aplicación— y qué pasaría si una de ellas fallara, haciendo mucho más tangible un modelo que antes nos parecía solo teórico.</p>
+      </div>
+
+      <div class="product-card done">
+        <div class="ph">
+          <h4>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            Producto multimodal — Animación interactiva
+          </h4>
+          <span class="badge badge-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 17.01"></polyline></svg>Entregado</span>
+        </div>
+        <div class="meta">A cargo de: equipo completo (Thomas, Andrés y Valerie)</div>
+
+        <div class="diagram-box dj-box">
+          <svg viewBox="0 0 700 440" width="100%" id="djSvg">
+            <text x="150" y="16" text-anchor="middle" class="dj-col-title">CLIENTE</text>
+            <text x="550" y="16" text-anchor="middle" class="dj-col-title">SERVIDOR YOUTUBE</text>
+
+            <!-- Cliente: 7 capas -->
+            <rect id="dj-client-0" class="dj-layer" x="50" y="30" width="200" height="50" rx="8"></rect>
+            <text x="150" y="60" text-anchor="middle" class="dj-layer-label">Aplicación</text>
+            <rect id="dj-client-1" class="dj-layer" x="50" y="86" width="200" height="50" rx="8"></rect>
+            <text x="150" y="116" text-anchor="middle" class="dj-layer-label">Presentación</text>
+            <rect id="dj-client-2" class="dj-layer" x="50" y="142" width="200" height="50" rx="8"></rect>
+            <text x="150" y="172" text-anchor="middle" class="dj-layer-label">Sesión</text>
+            <rect id="dj-client-3" class="dj-layer" x="50" y="198" width="200" height="50" rx="8"></rect>
+            <text x="150" y="228" text-anchor="middle" class="dj-layer-label">Transporte</text>
+            <rect id="dj-client-4" class="dj-layer" x="50" y="254" width="200" height="50" rx="8"></rect>
+            <text x="150" y="284" text-anchor="middle" class="dj-layer-label">Red</text>
+            <rect id="dj-client-5" class="dj-layer" x="50" y="310" width="200" height="50" rx="8"></rect>
+            <text x="150" y="340" text-anchor="middle" class="dj-layer-label">Enlace de datos</text>
+            <rect id="dj-client-6" class="dj-layer" x="50" y="366" width="200" height="50" rx="8"></rect>
+            <text x="150" y="396" text-anchor="middle" class="dj-layer-label">Física</text>
+
+            <!-- Servidor: 7 capas -->
+            <rect id="dj-server-0" class="dj-layer" x="450" y="30" width="200" height="50" rx="8"></rect>
+            <text x="550" y="60" text-anchor="middle" class="dj-layer-label">Aplicación</text>
+            <rect id="dj-server-1" class="dj-layer" x="450" y="86" width="200" height="50" rx="8"></rect>
+            <text x="550" y="116" text-anchor="middle" class="dj-layer-label">Presentación</text>
+            <rect id="dj-server-2" class="dj-layer" x="450" y="142" width="200" height="50" rx="8"></rect>
+            <text x="550" y="172" text-anchor="middle" class="dj-layer-label">Sesión</text>
+            <rect id="dj-server-3" class="dj-layer" x="450" y="198" width="200" height="50" rx="8"></rect>
+            <text x="550" y="228" text-anchor="middle" class="dj-layer-label">Transporte</text>
+            <rect id="dj-server-4" class="dj-layer" x="450" y="254" width="200" height="50" rx="8"></rect>
+            <text x="550" y="284" text-anchor="middle" class="dj-layer-label">Red</text>
+            <rect id="dj-server-5" class="dj-layer" x="450" y="310" width="200" height="50" rx="8"></rect>
+            <text x="550" y="340" text-anchor="middle" class="dj-layer-label">Enlace de datos</text>
+            <rect id="dj-server-6" class="dj-layer" x="450" y="366" width="200" height="50" rx="8"></rect>
+            <text x="550" y="396" text-anchor="middle" class="dj-layer-label">Física</text>
+
+            <!-- Cruce por la red -->
+            <line id="djCrossLine" class="dj-cross" x1="250" y1="391" x2="450" y2="391"></line>
+            <text id="djCrossLabel" x="350" y="378" text-anchor="middle" class="dj-cross-label">red / internet</text>
+
+            <!-- Paquete animado -->
+            <circle id="djPacket" class="dj-packet" cx="150" cy="55" r="9"></circle>
+          </svg>
+        </div>
+
+        <div class="dj-textbox" id="djText">
+          <span class="dj-tag">Listo para iniciar</span>
+          <p>Presiona "Reproducir viaje" para ver cómo un video de YouTube atraviesa las 7 capas del modelo OSI, desde el cliente hasta el servidor.</p>
+        </div>
+
+        <div class="dj-controls">
+          <button class="btn btn-primary" id="djPlayBtn" onclick="djPlay()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+            Reproducir viaje
+          </button>
+          <label class="dj-select-label">
+            Simular falla en:
+            <select id="djFailSelect" class="dj-select">
+              <option value="">Ninguna (viaje completo)</option>
+              <option value="0">Aplicación</option>
+              <option value="1">Presentación</option>
+              <option value="2">Sesión</option>
+              <option value="3">Transporte</option>
+              <option value="4">Red</option>
+              <option value="5">Enlace de datos</option>
+              <option value="6">Física</option>
+            </select>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PREMISA 6 ===================== -->
+    <section class="premise view" id="premisa-6">
+      <div class="premise-head reveal">
+        <div class="premise-num">06</div>
+        <div class="premise-title">
+          <h2>Si Internet fuera una ciudad, ¿cómo funcionaría?</h2>
+          <div class="case">Analogía urbana para explicar los modelos OSI y TCP/IP</div>
+        </div>
+      </div>
+
+      <div class="prose reveal">
+        <p>Para explicar los modelos OSI y TCP/IP a alguien que nunca ha estudiado informática, usamos la analogía de una ciudad: imaginemos que queremos enviar un paquete desde una casa hasta otra ciudad.</p>
+      </div>
+
+      <div class="panel reveal">
+        <div class="subhead" style="margin-top:0">El modelo OSI como una ciudad</div>
+        <div class="grid grid-2" style="gap:10px;">
+          <div class="card" style="padding:14px 18px;"><strong style="color:var(--cyan)">Física</strong> — calles, carreteras y cables por donde se desplazan los vehículos.</div>
+          <div class="card" style="padding:14px 18px;"><strong style="color:var(--cyan)">Enlace</strong> — normas que permiten que los vehículos circulen dentro de una zona.</div>
+          <div class="card" style="padding:14px 18px;"><strong style="color:var(--cyan)">Red</strong> — el sistema de direcciones y rutas hacia donde debe ir el paquete.</div>
+          <div class="card" style="padding:14px 18px;"><strong style="color:var(--cyan)">Transporte</strong> — la empresa que garantiza que los paquetes lleguen correctamente.</div>
+          <div class="card" style="padding:14px 18px;"><strong style="color:var(--cyan)">Sesión</strong> — la apertura, mantenimiento y cierre de una comunicación.</div>
+          <div class="card" style="padding:14px 18px;"><strong style="color:var(--cyan)">Presentación</strong> — la forma en que se organiza y protege el contenido.</div>
+          <div class="card" style="padding:14px 18px; grid-column:1/-1;"><strong style="color:var(--cyan)">Aplicación</strong> — el servicio que solicita el ciudadano: enviar un paquete o recibir información.</div>
+        </div>
+      </div>
+
+      <div class="prose" style="margin-top:24px;">
+        <p>El modelo TCP/IP agrupa estas funciones en cuatro capas: <strong>acceso a la red, Internet, transporte y aplicación</strong>. La analogía permite entender que los modelos no son listas de conceptos, sino formas de organizar las funciones necesarias para que una comunicación pueda realizarse — algo que, como futuros Ingenieros de Sistemas, nos ayuda a explicar conceptos técnicos sin perder su relación con el funcionamiento real.</p>
+      </div>
+
+      <div class="subhead">Aprendizajes del equipo</div>
+      <div class="panel">
+        <p style="color:var(--text-dim); margin:0;">Usar la analogía de una ciudad para explicar los modelos OSI y TCP/IP nos obligó a traducir conceptos técnicos a un lenguaje cotidiano sin perder precisión. Aprendimos que estas analogías son útiles para comunicar ideas técnicas a personas no expertas, y que TCP/IP simplemente agrupa varias de las funciones que OSI separa en capas independientes.</p>
+      </div>
+
+      <div class="product-card done">
+        <div class="ph">
+          <h4>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+            Producto multimodal — Genially interactivo
+          </h4>
+          <span class="badge badge-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 17.01"></polyline></svg>Entregado</span>
+        </div>
+        <div class="meta">A cargo de: equipo completo (Valerie, Thomas y Andrés)</div>
+        <div class="embed-frame">
+          <iframe src="https://view.genially.com/6aa63605437b55843b3c8704" title="Genially interactivo — Internet como ciudad" allow="fullscreen" loading="lazy"></iframe>
+        </div>
+        <p style="margin:14px 0 0;"><a class="btn btn-ghost" href="https://view.genially.com/6aa63605437b55843b3c8704" target="_blank" rel="noopener">Abrir en Genially
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+        </a></p>
+      </div>
+    </section>
+
+    <!-- ===================== PREMISA 7 ===================== -->
+    <section class="premise view" id="premisa-7">
+      <div class="premise-head reveal">
+        <div class="premise-num">07</div>
+        <div class="premise-title">
+          <h2>24 horas sin Internet… ¿qué tan dependientes somos?</h2>
+          <div class="case">Protocolo seleccionado: DNS · premisa desarrollada con apoyo de IA</div>
+        </div>
+      </div>
+
+      <div class="prose reveal">
+        <p>Imaginemos un escenario que, aunque parece ficticio, podría tener consecuencias serias: el protocolo <strong>DNS</strong> desaparece completamente durante 24 horas. El DNS (Domain Name System) es el sistema que relaciona nombres de dominio fáciles de recordar con las direcciones IP que localizan servicios en la red — funciona como un "traductor" entre los nombres que usan las personas y las direcciones que necesitan los dispositivos.</p>
+      </div>
+
+      <div class="diagram-box reveal">
+        <svg viewBox="0 0 820 200" width="100%">
+          <text x="20" y="26" class="node-sub" style="fill:var(--ok)">CON DNS FUNCIONANDO</text>
+          <rect x="20" y="40" width="140" height="46" rx="8" class="node-box ok"></rect>
+          <text x="90" y="68" text-anchor="middle" class="node-label">Usuario</text>
+          <rect x="200" y="40" width="180" height="46" rx="8" class="node-box"></rect>
+          <text x="290" y="68" text-anchor="middle" class="node-label">nombre del sitio</text>
+          <rect x="420" y="40" width="120" height="46" rx="8" class="node-box cyan"></rect>
+          <text x="480" y="68" text-anchor="middle" class="node-label">DNS</text>
+          <rect x="580" y="40" width="180" height="46" rx="8" class="node-box ok"></rect>
+          <text x="670" y="68" text-anchor="middle" class="node-label">Dirección IP</text>
+          <path d="M160,63 L200,63" class="edge flow" marker-end="url(#arrow)"></path>
+          <path d="M380,63 L420,63" class="edge flow" marker-end="url(#arrow)"></path>
+          <path d="M540,63 L580,63" class="edge flow" marker-end="url(#arrow)"></path>
+
+          <text x="20" y="126" class="node-sub" style="fill:var(--bad)">SI DNS NO RESPONDE</text>
+          <rect x="20" y="140" width="140" height="46" rx="8" class="node-box"></rect>
+          <text x="90" y="168" text-anchor="middle" class="node-label">Usuario</text>
+          <rect x="200" y="140" width="180" height="46" rx="8" class="node-box"></rect>
+          <text x="290" y="168" text-anchor="middle" class="node-label">nombre del sitio</text>
+          <rect x="420" y="140" width="120" height="46" rx="8" class="node-box" style="stroke:var(--bad)"></rect>
+          <text x="480" y="168" text-anchor="middle" class="node-label" style="fill:var(--bad)">DNS ✕</text>
+          <path d="M160,163 L200,163" class="edge" marker-end="url(#arrow)"></path>
+          <path d="M380,163 L420,163" class="edge" marker-end="url(#arrow)"></path>
+          <line x1="545" y1="150" x2="575" y2="176" stroke="#ff6b7a" stroke-width="3"></line>
+          <line x1="575" y1="150" x2="545" y2="176" stroke="#ff6b7a" stroke-width="3"></line>
+        </svg>
+        <div class="diagram-caption">La cadena se interrumpe en DNS: hay conexión física, pero el nombre no se resuelve.</div>
+      </div>
+
+      <div class="prose">
+        <p>Un usuario podría interpretar el problema como una falla total de Internet, aunque físicamente su dispositivo siga conectado a la red. Durante esas 24 horas podrían verse afectados: clases virtuales, plataformas educativas, trabajo remoto, comercio electrónico, banca digital, comunicación empresarial, entretenimiento, almacenamiento en la nube y servicios gubernamentales.</p>
+      </div>
+
+      <div class="subhead">¿Qué haría un Ingeniero de Sistemas?</div>
+      <ol class="num-list reveal">
+        <li><strong>Detectar el problema:</strong> comprobar si existe conectividad con la red.</li>
+        <li><strong>Realizar pruebas:</strong> usar herramientas como ping, tracert u otras de diagnóstico.</li>
+        <li><strong>Comprobar DNS:</strong> verificar si las solicitudes de resolución de nombres funcionan.</li>
+        <li><strong>Analizar la infraestructura:</strong> revisar servidores, configuraciones y routers.</li>
+        <li><strong>Buscar alternativas:</strong> usar mecanismos de respaldo e infraestructura redundante.</li>
+        <li><strong>Recuperar el servicio:</strong> restablecer la resolución de nombres y validar el funcionamiento.</li>
+      </ol>
+
+      <div class="prose" style="margin-top:20px;">
+        <p><strong>Conclusión:</strong> si DNS desapareciera durante 24 horas, el problema no estaría en "no poder entrar a una página", sino en la interrupción de múltiples servicios que dependen directa o indirectamente de la resolución de nombres. La sociedad moderna no solo utiliza Internet: depende de ella.</p>
+      </div>
+
+      <div class="subhead">Aprendizajes del equipo</div>
+      <div class="panel">
+        <p style="color:var(--text-dim); margin:0;">Analizar qué pasaría si el DNS desapareciera durante 24 horas nos hizo ver la dependencia que tenemos de servicios que damos por sentados. Aprendimos a distinguir el impacto técnico, social y profesional de una falla de infraestructura, y a pensar como un equipo de ingeniería: no basta con decir "no hay Internet", hay que diagnosticar, probar y recuperar el servicio de forma metódica.</p>
+      </div>
+
+      <div class="panel reveal" style="margin-top:24px; border-color: rgba(155,123,255,0.35);">
+        <div class="subhead" style="margin-top:0; color:var(--violet);">Uso de Inteligencia Artificial en esta premisa</div>
+        <div class="grid grid-2" style="gap:14px;">
+          <div><p style="color:var(--text-dim); font-size:0.9rem; margin:0 0 10px;"><strong style="color:var(--text)">Herramienta:</strong> Claude (Anthropic).</p>
+          <p style="color:var(--text-dim); font-size:0.9rem; margin:0;"><strong style="color:var(--text)">Qué le pedimos:</strong> primero, analizar el escenario "24 horas sin DNS" dividido en nivel técnico, social y profesional; después, diseñar la portada del periódico digital (HTML/CSS) con titular, tres secciones y un ícono de conexión interrumpida.</p></div>
+          <div><p style="color:var(--text-dim); font-size:0.9rem; margin:0 0 10px;"><strong style="color:var(--text)">Qué aportó:</strong> un primer borrador del análisis y el diseño completo de la portada.</p>
+          <p style="color:var(--text-dim); font-size:0.9rem; margin:0;"><strong style="color:var(--text)">Qué hizo el equipo:</strong> verificamos la exactitud técnica sobre DNS, reescribimos partes del texto con nuestra propia voz y decidimos qué destacar en cada sección.</p></div>
+        </div>
+      </div>
+
+      <div class="product-card done">
+        <div class="ph">
+          <h4>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"></path><path d="M18 14h-8"></path><path d="M15 18h-5"></path><path d="M10 6h8v4h-8V6Z"></path></svg>
+            Producto multimodal — Periódico digital
+          </h4>
+          <span class="badge badge-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 17.01"></polyline></svg>Entregado</span>
+        </div>
+        <div class="meta">A cargo de: equipo completo (Thomas, Andrés y Valerie)</div>
+        <div class="media-frame" style="max-width:420px" onclick="openLightbox('assets/img/periodico-premisa7.jpg')">
+          <img src="assets/img/periodico-premisa7.jpg" alt="Periódico digital: El DNS colapsa" loading="lazy">
+          <div class="cap">"El Conectado" · edición de emergencia · click para ampliar</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PREMISA 8 ===================== -->
+    <section class="premise view" id="premisa-8">
+      <div class="premise-head reveal">
+        <div class="premise-num">08</div>
+        <div class="premise-title">
+          <h2>Where does the Internet travel?</h2>
+          <div class="case">Scenario: Smart University Campus · premise delivered in English</div>
+        </div>
+      </div>
+
+      <div class="prose reveal">
+        <p>Imagine a modern university campus where thousands of students, teachers and administrative workers connect to the Internet every day. The campus has classrooms, laboratories, offices, libraries and common areas.</p>
+      </div>
+
+      <div class="subhead">Proposed transmission media</div>
+      <div class="grid grid-3">
+        <div class="card reveal">
+          <h4>Fiber optic</h4>
+          <p>Connects the main buildings of the campus: high transmission capacity, ideal for long-distance connections.</p>
+        </div>
+        <div class="card reveal">
+          <h4>Copper cable</h4>
+          <p>Inside classrooms, laboratories and offices, connects computers, printers and IP phones to the network switches.</p>
+        </div>
+        <div class="card reveal">
+          <h4>Wi-Fi</h4>
+          <p>For mobile devices — smartphones, tablets, laptops — giving mobility to students and teachers.</p>
+        </div>
+      </div>
+
+      <div class="prose" style="margin-top:20px;">
+        <p>For critical connections, we would consider a <strong>wireless point-to-point backup link</strong>: if the main fiber connection fails, it keeps communication active between the important areas of the campus. Factors such as distance, physical obstacles, electromagnetic interference and weather conditions determine which medium fits each stretch.</p>
+      </div>
+
+      <div class="diagram-box reveal">
+        <svg viewBox="0 0 640 470" width="100%" style="max-width:560px; margin:0 auto; display:block;">
+          <rect x="260" y="10" width="120" height="42" rx="8" class="node-box cyan"></rect>
+          <text x="320" y="36" text-anchor="middle" class="node-label">INTERNET</text>
+          <rect x="260" y="82" width="120" height="42" rx="8" class="node-box"></rect>
+          <text x="320" y="108" text-anchor="middle" class="node-label">ROUTER</text>
+          <rect x="210" y="154" width="220" height="42" rx="8" class="node-box cyan"></rect>
+          <text x="320" y="180" text-anchor="middle" class="node-label" style="font-size:11px">MAIN NETWORK SWITCH</text>
+          <path d="M320,52 L320,82" class="edge flow" marker-end="url(#arrow)"></path>
+          <path d="M320,124 L320,154" class="edge flow" marker-end="url(#arrow)"></path>
+
+          <rect x="230" y="216" width="180" height="34" rx="17" class="node-box violet" style="fill:var(--violet-soft)"></rect>
+          <text x="320" y="238" text-anchor="middle" class="node-sub" style="fill:var(--violet)">Fiber optic (backbone)</text>
+          <path d="M320,196 L320,216" class="edge flow" marker-end="url(#arrow)"></path>
+
+          <rect x="20" y="286" width="150" height="50" rx="8" class="node-box"></rect>
+          <text x="95" y="316" text-anchor="middle" class="node-label">BUILDING A</text>
+          <rect x="245" y="286" width="150" height="50" rx="8" class="node-box"></rect>
+          <text x="320" y="316" text-anchor="middle" class="node-label">BUILDING B</text>
+          <rect x="470" y="286" width="150" height="50" rx="8" class="node-box"></rect>
+          <text x="545" y="316" text-anchor="middle" class="node-label">BUILDING C</text>
+
+          <path d="M320,250 L95,286" class="edge flow" marker-end="url(#arrow)"></path>
+          <path d="M320,250 L320,286" class="edge flow" marker-end="url(#arrow)"></path>
+          <path d="M320,250 L545,286" class="edge flow" marker-end="url(#arrow)"></path>
+          <path d="M95,349 L545,349" class="edge bad" stroke-dasharray="4 4"></path>
+          <text x="320" y="356" text-anchor="middle" class="node-sub" style="fill:var(--bad); font-size:9px">wireless backup link</text>
+
+          <rect x="45" y="366" width="100" height="38" rx="8" class="node-box warn"></rect>
+          <text x="95" y="390" text-anchor="middle" class="node-label" style="font-size:11px">Copper switch</text>
+          <rect x="270" y="366" width="100" height="38" rx="8" class="node-box warn"></rect>
+          <text x="320" y="390" text-anchor="middle" class="node-label" style="font-size:11px">Copper switch</text>
+          <rect x="495" y="366" width="100" height="38" rx="8" class="node-box warn"></rect>
+          <text x="545" y="390" text-anchor="middle" class="node-label" style="font-size:11px">Copper switch</text>
+          <path d="M95,336 L95,366" class="edge" marker-end="url(#arrow)"></path>
+          <path d="M320,336 L320,366" class="edge" marker-end="url(#arrow)"></path>
+          <path d="M545,336 L545,366" class="edge" marker-end="url(#arrow)"></path>
+
+          <rect x="45" y="420" width="100" height="38" rx="8" class="node-box ok"></rect>
+          <text x="95" y="444" text-anchor="middle" class="node-label" style="font-size:11px">PCs / Wi-Fi</text>
+          <rect x="270" y="420" width="100" height="38" rx="8" class="node-box ok"></rect>
+          <text x="320" y="444" text-anchor="middle" class="node-label" style="font-size:11px">PCs / Wi-Fi</text>
+          <rect x="495" y="420" width="100" height="38" rx="8" class="node-box ok"></rect>
+          <text x="545" y="444" text-anchor="middle" class="node-label" style="font-size:11px">PCs / Wi-Fi</text>
+          <path d="M95,404 L95,420" class="edge" marker-end="url(#arrow)"></path>
+          <path d="M320,404 L320,420" class="edge" marker-end="url(#arrow)"></path>
+          <path d="M545,404 L545,420" class="edge" marker-end="url(#arrow)"></path>
+        </svg>
+        <div class="diagram-caption">Proposed network — Smart University Campus</div>
+      </div>
+
+      <div class="prose">
+        <p><strong>Final reflection:</strong> The Internet doesn't travel through a single medium, but through a combination of physical and wireless technologies. As future Systems Engineers, we must consider distance, cost, stability, environmental conditions, security, mobility and future growth — not simply choose the fastest option.</p>
+      </div>
+
+      <div class="subhead">Team learnings</div>
+      <div class="panel">
+        <p style="color:var(--text-dim); margin:0;">Designing the transmission infrastructure of a university campus let us apply the concepts of guided and unguided media to a real case: combining fiber optic, copper cable and Wi-Fi according to the distance, mobility and stability each area needs. We learned that choosing a transmission medium means balancing several factors — cost, distance, security, mobility — not simply picking the fastest option.</p>
+      </div>
+
+      <div class="product-card done">
+        <div class="ph">
+          <h4>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 9 2 12 5 15"></polyline><polyline points="9 5 12 2 15 5"></polyline><polyline points="15 19 12 22 9 19"></polyline><polyline points="19 9 22 12 19 15"></polyline><line x1="2" y1="12" x2="22" y2="12"></line><line x1="12" y1="2" x2="12" y2="22"></line></svg>
+            Multimodal product — Interactive game
+          </h4>
+          <span class="badge badge-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 17.01"></polyline></svg>Delivered</span>
+        </div>
+        <div class="meta">By: full team (Thomas, Andrés and Valerie)</div>
+
+        <div class="game-box" id="campusGame">
+          <div class="game-head">
+            <h4 class="game-title">Build the Smart Campus Network</h4>
+            <p class="game-sub">Drag each connection type onto the zone where it fits best — or tap a tool, then tap a zone.</p>
+          </div>
+
+          <div class="game-layout">
+            <div class="game-toolbox">
+              <div class="game-tool" draggable="true" data-media="fiber">
+                <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                <span>Fiber optic cable</span>
+              </div>
+              <div class="game-tool" draggable="true" data-media="copper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                <span>Copper Ethernet cable</span>
+              </div>
+              <div class="game-tool" draggable="true" data-media="wifi">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>
+                <span>Wi-Fi</span>
+              </div>
+              <div class="game-tool" draggable="true" data-media="wireless-backup">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+                <span>Wireless point-to-point link</span>
+              </div>
+            </div>
+
+            <div class="game-zones">
+              <div class="game-zone" data-zone="a">
+                <h5>Zone A — Backbone: Router to Building A / B / C</h5>
+                <svg viewBox="0 0 260 160" class="zone-svg">
+                  <rect x="90" y="8" width="80" height="30" rx="6" class="node-box cyan"></rect>
+                  <text x="130" y="27" text-anchor="middle" class="node-label" style="font-size:10px">SWITCH</text>
+                  <path d="M130,38 L50,96" class="zone-slot"></path>
+                  <path d="M130,38 L130,96" class="zone-slot"></path>
+                  <path d="M130,38 L210,96" class="zone-slot"></path>
+                  <rect x="20" y="96" width="60" height="34" rx="6" class="node-box"></rect>
+                  <text x="50" y="117" text-anchor="middle" class="node-label" style="font-size:10px">Bldg A</text>
+                  <rect x="100" y="96" width="60" height="34" rx="6" class="node-box"></rect>
+                  <text x="130" y="117" text-anchor="middle" class="node-label" style="font-size:10px">Bldg B</text>
+                  <rect x="180" y="96" width="60" height="34" rx="6" class="node-box"></rect>
+                  <text x="210" y="117" text-anchor="middle" class="node-label" style="font-size:10px">Bldg C</text>
+                  <g class="zone-fail-x">
+                    <line x1="112" y1="55" x2="148" y2="75" class="zone-fail-line"></line>
+                    <line x1="148" y1="55" x2="112" y2="75" class="zone-fail-line"></line>
+                  </g>
+                  <text class="zone-result-label" x="130" y="150" text-anchor="middle"></text>
+                </svg>
+              </div>
+
+              <div class="game-zone" data-zone="b">
+                <h5>Zone B — Inside the buildings</h5>
+                <svg viewBox="0 0 260 160" class="zone-svg">
+                  <rect x="15" y="10" width="230" height="122" rx="10" class="node-box" style="stroke-dasharray:4 3;"></rect>
+                  <text x="130" y="26" text-anchor="middle" class="node-sub">BUILDING (INSIDE)</text>
+                  <rect x="105" y="40" width="50" height="26" rx="6" class="node-box cyan"></rect>
+                  <text x="130" y="57" text-anchor="middle" class="node-label" style="font-size:10px">SWITCH</text>
+                  <path d="M130,66 L60,104" class="zone-slot"></path>
+                  <path d="M130,66 L130,104" class="zone-slot"></path>
+                  <path d="M130,66 L200,104" class="zone-slot"></path>
+                  <rect x="35" y="104" width="50" height="24" rx="4" class="node-box"></rect>
+                  <text x="60" y="120" text-anchor="middle" class="node-label" style="font-size:9px">PC</text>
+                  <rect x="105" y="104" width="50" height="24" rx="4" class="node-box"></rect>
+                  <text x="130" y="120" text-anchor="middle" class="node-label" style="font-size:9px">Printer</text>
+                  <rect x="175" y="104" width="50" height="24" rx="4" class="node-box"></rect>
+                  <text x="200" y="120" text-anchor="middle" class="node-label" style="font-size:9px">IP Phone</text>
+                  <text class="zone-result-label" x="130" y="150" text-anchor="middle"></text>
+                </svg>
+              </div>
+
+              <div class="game-zone" data-zone="c">
+                <h5>Zone C — Outdoor areas &amp; mobile devices</h5>
+                <svg viewBox="0 0 260 160" class="zone-svg">
+                  <circle cx="130" cy="30" r="16" class="node-box cyan"></circle>
+                  <text x="130" y="34" text-anchor="middle" class="node-label" style="font-size:9px">AP</text>
+                  <path d="M130,46 L70,104" class="zone-slot"></path>
+                  <path d="M130,46 L190,104" class="zone-slot"></path>
+                  <rect x="35" y="104" width="70" height="30" rx="6" class="node-box"></rect>
+                  <text x="70" y="123" text-anchor="middle" class="node-label" style="font-size:10px">Laptop</text>
+                  <rect x="155" y="104" width="70" height="30" rx="6" class="node-box"></rect>
+                  <text x="190" y="123" text-anchor="middle" class="node-label" style="font-size:10px">Phone</text>
+                  <text class="zone-result-label" x="130" y="150" text-anchor="middle"></text>
+                </svg>
+              </div>
+
+              <div class="game-zone" data-zone="d">
+                <h5>Zone D — Emergency backup link</h5>
+                <svg viewBox="0 0 260 160" class="zone-svg">
+                  <rect x="10" y="55" width="70" height="40" rx="6" class="node-box"></rect>
+                  <text x="45" y="79" text-anchor="middle" class="node-label" style="font-size:10px">Bldg B</text>
+                  <rect x="180" y="55" width="70" height="40" rx="6" class="node-box"></rect>
+                  <text x="215" y="79" text-anchor="middle" class="node-label" style="font-size:10px">Bldg C</text>
+                  <path d="M80,75 L180,75" class="zone-slot"></path>
+                  <text x="130" y="65" text-anchor="middle" class="node-sub" style="font-size:9px">backup link</text>
+                  <text class="zone-result-label" x="130" y="150" text-anchor="middle"></text>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="dj-textbox" id="gameFeedback">
+            <span class="dj-tag">Ready</span>
+            <p>Drag a connection type onto a zone to test your idea. Wrong guesses are free — try again.</p>
+          </div>
+
+          <div class="game-factors" id="gameFactors" hidden>
+            <div class="subhead" style="margin-top:24px;">Network factors</div>
+            <div class="grid grid-3">
+              <div class="card"><h4>Cost</h4><p>Copper is the cheapest for short distances. Wi-Fi is affordable for coverage. Fiber costs more but is worth it for the backbone.</p></div>
+              <div class="card"><h4>Distance</h4><p>As distance increases, a wireless signal naturally loses strength — that's why fiber, not Wi-Fi, connects the buildings.</p></div>
+              <div class="card"><h4>Interference</h4><p>Electromagnetic interference and physical obstacles affect wireless signals more than guided media like fiber or copper.</p></div>
+              <div class="card"><h4>Stability</h4><p>Fiber optic is the most stable option. Wi-Fi is the least stable and the most exposed to interference.</p></div>
+              <div class="card"><h4>Single point of failure</h4><p>Relying only on the main switch or the fiber backbone could bring down the whole network if it fails — that's why the backup link exists.</p></div>
+              <div class="card"><h4>Availability</h4><p>The wireless backup link guarantees availability: one physical failure doesn't isolate an entire building.</p></div>
+            </div>
+          </div>
+
+          <div class="dj-controls">
+            <button class="btn btn-ghost" id="gameResetBtn" type="button">Reset game</button>
+            <button class="btn btn-primary" id="gameFailBtn" type="button" disabled>Simulate backbone failure</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== EVIDENCIAS DE APRENDIZAJE ===================== -->
+    <section class="view" id="evidencias">
+      <div class="section-head reveal">
+        <div class="eyebrow">03 · Registro</div>
+        <h2>Evidencias de aprendizaje</h2>
+        <p>Registro fotográfico de las actividades prácticas realizadas durante el corte.</p>
+      </div>
+
+      <div class="evidence-group reveal">
+        <div class="evidence-group-head">
+          <h3>Pasaporte multisensorial</h3>
+          <p>Ejercicio individual de autoconocimiento: cómo percibe cada integrante sus metas y motivaciones a través de los 5 sentidos.</p>
+        </div>
+        <div class="evidence-shots" style="--cols:2;">
+          <div class="media-frame evidence-shot" onclick="openLightbox('assets/img/pasaporte_andres.jpeg')">
+            <img src="assets/img/pasaporte_andres.jpeg" alt="Pasaporte multisensorial — Andrés" loading="lazy">
+            <div class="cap">Andrés</div>
+          </div>
+          <div class="media-frame evidence-shot" onclick="openLightbox('assets/img/pasaporte_valerie.jpeg')">
+            <img src="assets/img/pasaporte_valerie.jpeg" alt="Pasaporte multisensorial — Valerie" loading="lazy">
+            <div class="cap">Valerie</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="evidence-group reveal">
+        <div class="evidence-group-head">
+          <h3>Resumen — "Lo and Behold: El Inicio del Internet"</h3>
+          <p>Apuntes del equipo sobre los personajes y el origen de Internet, vistos en el documental pedido en la Premisa 2.</p>
+        </div>
+        <div class="evidence-shots" style="--cols:2;">
+          <div class="media-frame evidence-shot" onclick="openLightbox('assets/img/resumen_pelicula.jpeg')">
+            <img src="assets/img/resumen_pelicula.jpeg" alt="Apuntes: personajes de Lo and Behold" loading="lazy">
+            <div class="cap">Personajes</div>
+          </div>
+          <div class="media-frame evidence-shot" onclick="openLightbox('assets/img/resumen_pelicula2.jpeg')">
+            <img src="assets/img/resumen_pelicula2.jpeg" alt="Apuntes: origen de Internet" loading="lazy">
+            <div class="cap">Origen de Internet</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="evidence-group reveal">
+        <div class="evidence-group-head">
+          <h3>Ponchado de cables</h3>
+          <p>Práctica de terminación de cable UTP: identificación de pares, norma T568B y conexión en patch panel.</p>
+        </div>
+        <div class="evidence-shots" style="--cols:2;">
+          <div class="media-frame evidence-shot" onclick="openLightbox('assets/img/ponchado_cables.jpeg')">
+            <img src="assets/img/ponchado_cables.jpeg" alt="Ponchado de cable en patch panel" loading="lazy">
+          </div>
+          <div class="media-frame evidence-shot" onclick="openLightbox('assets/img/ponchado_cables2.jpeg')">
+            <img src="assets/img/ponchado_cables2.jpeg" alt="Separación de pares del cable UTP" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <div class="evidence-group reveal">
+        <div class="evidence-group-head">
+          <h3>Práctica de Packet Tracer</h3>
+          <p>Ejercicio de simulación: topología con switches, PCs y portátiles interconectados.</p>
+        </div>
+        <div class="evidence-shots single">
+          <div class="media-frame evidence-shot" onclick="openLightbox('assets/img/practica_packet_tracer.jpeg')">
+            <img src="assets/img/practica_packet_tracer.jpeg" alt="Práctica de Packet Tracer" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ===================== LISTA DE CONTROL ===================== -->
+    <section class="view" id="lista-control">
+      <div class="section-head reveal">
+        <div class="eyebrow">04 · Entrega</div>
+        <h2>Lista de control</h2>
+        <p>Antes de entregar el portafolio, verificamos cada uno de estos puntos exigidos por la guía del curso. Marca Sí o No en cada fila.</p>
+      </div>
+
+      <div class="panel reveal" style="max-width:820px;">
+        <div class="check-row">
+          <div class="check-q">¿He tenido en cuenta la premisa de cada entrada?</div>
+          <div class="check-opts">
+            <label class="check-opt opt-si">
+              <input type="checkbox" class="check-input" data-row="q1" data-value="si">
+              <span class="opt-label">Sí</span>
+            </label>
+            <label class="check-opt opt-no">
+              <input type="checkbox" class="check-input" data-row="q1" data-value="no">
+              <span class="opt-label">No</span>
+            </label>
+          </div>
+        </div>
+        <div class="check-row">
+          <div class="check-q">¿He registrado los aprendizajes que he logrado en este corte?</div>
+          <div class="check-opts">
+            <label class="check-opt opt-si">
+              <input type="checkbox" class="check-input" data-row="q2" data-value="si">
+              <span class="opt-label">Sí</span>
+            </label>
+            <label class="check-opt opt-no">
+              <input type="checkbox" class="check-input" data-row="q2" data-value="no">
+              <span class="opt-label">No</span>
+            </label>
+          </div>
+        </div>
+        <div class="check-row">
+          <div class="check-q">¿He registrado las pruebas o evidencias que apoyan mi proceso de aprendizaje?</div>
+          <div class="check-opts">
+            <label class="check-opt opt-si">
+              <input type="checkbox" class="check-input" data-row="q3" data-value="si">
+              <span class="opt-label">Sí</span>
+            </label>
+            <label class="check-opt opt-no">
+              <input type="checkbox" class="check-input" data-row="q3" data-value="no">
+              <span class="opt-label">No</span>
+            </label>
+          </div>
+        </div>
+        <div class="check-row">
+          <div class="check-q">¿Adjunté esta lista de control?</div>
+          <div class="check-opts">
+            <label class="check-opt opt-si">
+              <input type="checkbox" class="check-input" data-row="q4" data-value="si">
+              <span class="opt-label">Sí</span>
+            </label>
+            <label class="check-opt opt-no">
+              <input type="checkbox" class="check-input" data-row="q4" data-value="no">
+              <span class="opt-label">No</span>
+            </label>
+          </div>
+        </div>
+        <div class="check-row">
+          <div class="check-q">¿Adjunté/envié/compartí/presenté mi portafolio antes del 18 de septiembre a las 11:59 pm?</div>
+          <div class="check-opts">
+            <label class="check-opt opt-si">
+              <input type="checkbox" class="check-input" data-row="q5" data-value="si">
+              <span class="opt-label">Sí</span>
+            </label>
+            <label class="check-opt opt-no">
+              <input type="checkbox" class="check-input" data-row="q5" data-value="no">
+              <span class="opt-label">No</span>
+            </label>
+          </div>
+        </div>
+
+        <p class="checklist-note">Equipo: Thomas, Andrés y Valerie — Corte 1, 2026-2</p>
+      </div>
+
+      <footer>
+        <div>Portafolio de Aprendizaje — Redes de Computadores · Ingeniería de Sistemas</div>
+        <div>Thomas · Andrés · Valerie — Corte 1, 2026-2</div>
+      </footer>
+    </section>
+
+    <div class="panel-bar">
+      <button class="pb-btn" id="pbPrev" onclick="goPanel(-1)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        <span class="pb-label">Anterior</span>
+      </button>
+      <div class="pb-info">
+        <span><span id="pbIndex">1</span> / <span id="pbTotal">12</span></span>
+        <span class="pb-title" id="pbTitle">Inicio</span>
+      </div>
+      <button class="pb-btn primary" id="pbNext" onclick="goPanel(1)">
+        <span class="pb-label">Siguiente</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </button>
+    </div>
+  </main>
+</div>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+  </button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
