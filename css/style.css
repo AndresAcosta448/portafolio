@@ -589,6 +589,14 @@ section.tight { padding-top: 60px; padding-bottom: 60px; }
 }
 .video-frame video { width: 100%; max-height: 560px; display: block; background: #000; }
 
+.audio-frame {
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  padding: 16px 18px;
+}
+.audio-frame audio { width: 100%; display: block; }
+
 /* ---------- Diagrams (SVG containers) ---------- */
 .diagram-box {
   background: radial-gradient(ellipse at 50% 0%, rgba(47,217,240,0.06), transparent 60%), var(--bg-alt);
